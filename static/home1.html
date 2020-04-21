@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Ooplah Home</title>
+</head>
+
+<style>
+
+.title{
+    font-family: Garamond;
+    width: 100%;
+    color:#FFFFFF;
+    text-align:center;
+    font-size:72px;
+
+}
+.oils1{
+
+    font-family: Garamond;
+    width: 50%;
+    color:#2AF69F;
+    text-align: left;
+    font-size: 20px;
+}
+
+table, th, td {
+  border: 1px solid black;
+
+}
+
+
+</style>
+
+<body style="background-color:#52DC9D">
+
+<h1 class = "title">Oōplah</h1>
+
+
+<a href="oil_search">Search by oils</a>
+<a href="recipe_search">Search by recipes</a>
+
+
+
+</body>
+
+
+<script>
+
+    document.querySelector(".oils1").addEventListener('change', e => {
+        console.log(e.target.options[e.target.selectedIndex].innerHTML);
+
+    });
+
+
+</script>
+
+
+
+
+
+
+
+
+</html>

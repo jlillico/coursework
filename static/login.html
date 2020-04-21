@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <script src="static/js/jquery-3.4.1.min.js"></script>
+</head>
+
+<style>
+    .btnSend{
+        width:200px;
+        height: 50px;
+        line-height:50px;
+        text-align:center;
+        background-color:#ccccff;
+        margin-top:10px;
+        margin-left:auto;
+        margin-right:auto;
+        cursor:pointer;
+
+    }
+    .btnSend:hover{
+        background-color:#ffff00
+    }
+
+    .txtEmail, .txtPassword{
+        display:block;
+        width:200px;
+        height:50px;
+        line-height:50px;
+        text-align:center;
+        margin-top:100px;
+        margin-left:auto;
+        margin-right:auto;
+        cursor:pointer;
+        resize:none;
+    }
+
+    .txtPassword{
+    margin-top:10px;
+    }
+
+</style>
+
+<body>
+
+
+<textarea class = "txtEmail"></textarea>
+<textarea class = "txtPassword"></textarea>
+<div class = "btnSend"> Login</div>
+
+</body>
+
+<script>
+
+    let btn1 = document.querySelector(".btnSend");
+    let txtEmail = document.querySelector(".txtEmail");
+    let txtPassword = document.querySelector(".txtPassword");
+    btn1.addEventListener('click', sendToServer);
+
+
+
+    function sendToServer(){
+        $.ajax({
+                type:"GET",
+                url: "/login",
+                data: {
+                        eml: txtEmail.value,
+                        pwd: txtPassword.value
+                },
+                dataType: "text"
+        })
+        .done(function(data) {
+            if (data == "True"){
+                window.location.href="/home1";
+            }else {
+                alert(data);
+            }
+
+        })
+        .fail(function(data) {
+            alert("error");
+        })
+
+    }
+
+</script>
+
+</html>
